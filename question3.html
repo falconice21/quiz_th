@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Call of Duty - Question 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <header class="bg-gray-800 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Quiz Call of Duty</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <h2 class="text-center text-lg font-bold mb-8">Question 3</h2>
+        
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-6">
+            <p class="text-lg mb-4">Quel studio a développé Call of Duty: Black Ops ?</p>
+            
+            <label class="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded mb-2 cursor-pointer">
+                <input type="radio" name="q3" value="A" class="hidden"> A. Infinity Ward
+            </label>
+            <label class="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded mb-2 cursor-pointer">
+                <input type="radio" name="q3" value="B" class="hidden"> B. Treyarch
+            </label>
+            <label class="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded mb-2 cursor-pointer">
+                <input type="radio" name="q3" value="C" class="hidden"> C. Sledgehammer Games
+            </label>
+            <label class="block w-full bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded cursor-pointer">
+                <input type="radio" name="q3" value="D" class="hidden"> D. Raven Software
+            </label>
+        </div>
+        
+        <div class="text-center mt-6">
+            <button id="submitButton" class="bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded">Voir les résultats</button>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            let selectedAnswer = document.querySelector('input[name="q3"]:checked');
+
+            if (!selectedAnswer) {
+                alert("Veuillez sélectionner une réponse !");
+                return;
+            }
+
+            let correctAnswer = "B"; // Bonne réponse
+            let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+            if (selectedAnswer.value === correctAnswer) {
+                score++;
+            }
+
+            localStorage.setItem("score", score);
+            window.location.href = "reponse.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats du Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-200 text-center">
+
+    <header class="bg-gray-800 p-4 shadow-md">
+        <h1 class="text-xl font-semibold">Résultats du Quiz</h1>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <h2 class="text-lg font-bold mb-4">Votre Score :</h2>
+        <p id="scoreDisplay" class="text-2xl font-bold text-yellow-400"></p>
+        
+        <div class="mt-6">
+            <button onclick="restartQuiz()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded">Recommencer</button>
+        </div>
+    </main>
+
+    <script>
+        let score = localStorage.getItem("score") || 0;
+        document.getElementById("scoreDisplay").innerText = score + "/3";
+
+        function restartQuiz() {
+            localStorage.setItem("score", 0);
+            window.location.href = "../index.html";
+        }
+    </script>
+
+</body>
+</html>
